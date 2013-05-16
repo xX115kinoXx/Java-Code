@@ -1,0 +1,66 @@
+package RpgAdventure;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Gui extends JFrame
+{
+   private JButton Attack;
+   private JButton Charge;
+   private JTextField tf;
+   private JCheckBox boldbox;
+   private JCheckBox italicbox;
+   private JButton Slash;
+   
+   public Gui()
+   {
+     super("Melee Attacks");
+	   setLayout(new FlowLayout());
+	   
+	   Icon a = new ImageIcon(getClass().getResource("GuiCustom.png"));
+	   Attack = new JButton("Attack", a);
+	   add(Attack);
+	   
+	   Icon b = new ImageIcon(getClass().getResource("GuiCustom.png"));
+	   Charge = new JButton("Charge", b);
+	   add(Charge);
+	   
+	   Icon c = new ImageIcon(getClass().getResource("GuiCustom.png"));
+	   Slash = new JButton("Slash", c);
+	   add(Slash);
+	  	   
+	   HandlerClass handler = new HandlerClass();
+	   Attack.addActionListener(handler);
+	   Charge.addActionListener(handler);
+	   Slash.addActionListener(handler);
+   }
+   private class HandlerClass implements ActionListener
+   {
+
+	@Override
+	public void actionPerformed(ActionEvent event) 
+	{
+		JOptionPane.showMessageDialog(null, String.format("%s", "Attack Has Been Used"));
+		
+
+	}
+	   
+	   
+	   
+	   
+	   
+   }
+   
+   
+	
+	
+}
